@@ -1,0 +1,28 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+
+.main {
+  background-color: $primary-background;
+  padding-bottom: 20px;
+
+  h1,
+  h3 {
+    line-height: 2;
+    // Grid stuff
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-column-gap: 15px;
+    align-items: center;
+
+    &::before,
+    &::after {
+      background-color: $black;
+      display: block;
+      height: 3px;
+      width: 100%;
+      content: '';
+    }
+  }
+}
