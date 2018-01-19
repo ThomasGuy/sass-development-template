@@ -3,21 +3,10 @@
 // -----------------------------------------------------------------------------
 
 .header {
-  max-width: $max-width;
-  margin: 0 auto;
   width: 100%;
-}
-
-.banner {
   background-color: saturate($secondary-background, 16%);
   border-bottom: 1px solid $black;
   color: $silver;
   height: 122px;
-
-  h1 {
-    font: normal 3.6rem $fatface-copy;
-    margin-top: 0;
-    text-align: center;
-    padding-top: 20px;
-  }
+  text-align: center;
 }

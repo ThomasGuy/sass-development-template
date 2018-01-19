@@ -23,12 +23,10 @@ html {
 
 // Allows flex-item full virtical height - sticky footer
 .site {
+  background-color: $fourth-background;
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin: 0 auto;
   min-height: 100vh;
+  max-width: $max-width;
 }
-
-.tall {
-  flex: 1;
- }

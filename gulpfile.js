@@ -1,11 +1,13 @@
-var gulp        = require('gulp');
-var harp        = require('harp');
-var browserSync = require('browser-sync').create();
-var sass        = require('gulp-sass');
-var prefixer    = require('gulp-autoprefixer');
-var plumber     = require('gulp-plumber');
-var beeper      = require('beeper');
-var reload      = browserSync.reload;
+const gulp = require('gulp');
+// const harp = require('harp');
+const browserSync = require('browser-sync').create();
+const sass = require('gulp-sass');
+const prefixer = require('gulp-autoprefixer');
+const plumber = require('gulp-plumber');
+const sourcemaps = require('gulp-sourcemaps');
+const beeper = require('beeper');
+
+const { reload, stream } = browserSync;
 
 // Error helper
 function onError(err) {
@@ -18,27 +20,28 @@ function onError(err) {
 }
 
 // Static Server + watching sass/html files
-gulp.task('serve', ['sass'], function() {
-    browserSync.init({
-      server: './app'
-    });
-    gulp.watch('app/stylesheets/**/*.scss', ['sass']);
-    gulp.watch('app/*.html').on('change', reload);
+gulp.task('serve', ['sass'], () => {
+  browserSync.init({
+    server: './app'
+  });
+  gulp.watch('app/stylesheets/**/*.scss', ['sass']);
+  gulp.watch('app/*.html').on('change', reload);
 });
 
 // Compile sass into CSS & auto-inject into browsers
-gulp.task('sass',function() {
-  return gulp.src('app/stylesheets/main.scss')
-    .pipe(plumber({
-      errorHandler: onError
-    }))
-    .pipe(sass())
-    .pipe(prefixer({
-              browsers: ['last 2 versions'],
-              cascade: false
-          }))
-    .pipe(gulp.dest("app/stylesheets"))
-    .pipe(browserSync.stream());
-});
+gulp.task('sass', () => gulp
+  .src('app/stylesheets/main.scss')
+  .pipe(sourcemaps.init())
+  .pipe(plumber({
+    errorHandler: onError
+  }))
+  .pipe(sass())
+  .pipe(prefixer({
+    browsers: ['last 2 versions'],
+    cascade: false
+  }))
+  .pipe(sourcemaps.write('.'))
+  .pipe(gulp.dest('app/css'))
+  .pipe(stream()));
 
 gulp.task('default', ['serve']);

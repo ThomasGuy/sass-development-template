@@ -1,0 +1,22 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  flex: 0 1 25%;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.cell {
+
+  img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  figcaption {
+    font-size: 0.9rem;
+  }
+}
