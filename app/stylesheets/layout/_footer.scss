@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+.footer {
+  background-color: $secondary-background;
+  flex: 1;
+  padding-top: 10px;
+  text-align: center;
+
+  a {
+    @include hocus {
+      color: $black;
+      text-decoration: underline;
+    }
+
+    color: $navy1;
+  }
+}
+
+.copyright {
+  font-size: 0.7rem;
+}

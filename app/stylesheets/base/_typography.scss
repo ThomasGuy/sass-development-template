@@ -1,0 +1,25 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+  background-color: $off-white;
+  color: $text-color;
+  font: normal 125% / 1.4 $text-font-stack;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-copy;
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: $text-color;
+  text-decoration: none;
+}

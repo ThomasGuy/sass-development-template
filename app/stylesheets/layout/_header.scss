@@ -1,0 +1,12 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+.header {
+  width: 100%;
+  background-color: saturate($secondary-background, 16%);
+  border-bottom: 1px solid $black;
+  color: $silver;
+  height: 122px;
+  text-align: center;
+}
